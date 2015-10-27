@@ -1,0 +1,38 @@
+#include<iostream>
+#include<vector>
+#include<algorithm>
+#define INT_MAX (1<<30)
+using namespace std;
+
+
+
+
+
+
+struct Dijs{
+
+
+  int dijs(int s , int t , vector<vector<int> > g){
+    int n = g.size();
+    int* d = new int[n];
+    bool flag = new bool[n];
+    fill(d,d+n+1,INT_MAX);
+    fill(flag,flag+n+1,INT_MAX);
+    d[s] = 0;
+    int node = 0, minn = INT_MAX;
+    for(int i = 0 ; i < n ; i++){
+      if(d[i] < minn && flag[i]
+
+      
+    }
+    delete flag;
+    delete d;
+    
+  }
+
+
+
+
+
+  
+}
