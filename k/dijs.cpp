@@ -18,6 +18,7 @@ struct Edge{
 struct Dijs{
 
   int dijs(int s,  int t, const vector<vector<Edge> >& g){
+    //cout<<"In dijs"<<endl;
     priority_queue<P,vector<P>, greater<P> > heap;
     int n = g.size();
     int *d = new int[n];
@@ -69,50 +70,9 @@ struct Dijs{
     delete d;
     return ans;
   }
-
-
-
-
-
-  
 };
 
 
-vector<vector<Edge> > g;
-void generate_graph(){
-  g.clear();
-  int graph_size = rand()%200;
-  for(int i = 0 ; i < graph_size ; i++)
-    g.push_back(vector<Edge>());
-  int E = rand() % (graph_size*graph_size);
-  for(int i = 0 ; i < E ; i++){
-    int from = rand()%graph_size;
-    int to = rand()%graph_size;
-    int cost = rand()% 10000;
-    g[from].push_back(Edge(from,to,cost));
-    g[to].push_back(Edge(to,from,cost));
-  }
-}
-
-void test(){
-  Dijs solver;
-  generate_graph();
-  int n = 20;
-  while(n--){
-    int s = rand()%g.size();
-    int t = rand()%g.size();
-    int r1 = solver.dijsNaive(s,t,g);
-    int r2 = solver.dijs(s,t,g);
-    cout<<"r1="<<r1<<" r2="<<r2<<' '<<(r1==r2?"TRUE":"FALSE")<<endl;
-  }
-	      
-}
 
 
 
-
-int main(){
-  int n = 10;
-  while(n--)test();
-  
-}
