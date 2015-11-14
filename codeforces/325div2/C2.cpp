@@ -9,7 +9,7 @@
 #define X first
 #define Y second
 #define MAX_N (4000)
-
+#define LIMIT 1000000
 using namespace std;
 int n, v[MAX_N], d[MAX_N], p[MAX_N];
 vector<int> ans;
@@ -31,7 +31,7 @@ void check(int idx){
     p[i] -= max(0,(v[idx]-c)) + acc;
     if(p[i]<0){
       flag[i] = true;
-      acc += d[i];
+      if(acc<LIMIT)acc += d[i];
     }
     c++;
   }
